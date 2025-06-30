@@ -1,0 +1,10 @@
+.section {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.section p, .section ul {
+  font-size: 18px;
+  line-height: 1.6;
+}
