@@ -1,30 +1,98 @@
+.profile-section {
+  padding: 60px 20px;
+  background: #E3F2FD; /* Pale Blue */
+}
+
 .profile-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.profile-left,
+.profile-right {
+  flex: 1;
+  min-width: 280px;
   text-align: center;
+  margin: 20px;
 }
 
 .profile-pic {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
+  border: 4px solid #007BFF;
   object-fit: cover;
-  border: 4px solid #007bff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.portrait-pic {
+  width: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 .profile-name {
-  font-size: 28px;
-  font-weight: 700;
-  margin-top: 20px;
-  color: #333;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2C3E50;
+  margin-top: 15px;
 }
 
 .profile-tagline {
-  font-size: 16px;
-  color: #555;
+  font-size: 20px;
+  color: #FF6F61;
   margin-top: 10px;
+  height: 30px;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.icon {
+  font-size: 28px;
+  margin: 0 10px;
+  color: #2C3E50;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.icon:hover {
+  color: #FF6F61;
+  transform: scale(1.2);
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.profile-button {
+  padding: 10px 20px;
+  background: #FF6F61;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.profile-button:hover {
+  background: #e85c50;
+  transform: translateY(-2px);
+}
+
+.contact-button {
+  background: #007BFF;
+}
+
+.contact-button:hover {
+  background: #0062cc;
 }

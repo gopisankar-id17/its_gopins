@@ -1,102 +1,51 @@
 body {
+  cursor: none;
+}
+
+body {
+  cursor: url('/sniper-cursor.svg') 24 24, crosshair;
+}
+
+body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
-  background: #f9f9f9;
-  color: #333;
-}
-
-.App {
-  text-align: center;
-}
-
-.section {
-  padding: 60px 20px;
-}
-
-h2 {
-  color: #007bff;
-}
-
-// src/components/Navbar.css
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background: #fff;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #007bff;
-}
-
-// src/components/SkillOrbit.css
-.orbit-container {
+  color: #eee;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000; /* set dark background */
   position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
 }
 
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #007bff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,
+    rgba(0, 123, 255, 0.15),
+    rgba(123, 0, 255, 0.1),
+    rgba(255, 0, 123, 0.1),
+    rgba(0, 255, 255, 0.1),
+    rgba(0, 0, 0, 0)
+  );
+  background-size: 400% 400%;
+  animation: glowBackground 30s ease infinite;
+  z-index: -1;
+  pointer-events: none;
 }
 
-.orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  height: 150px;
-  transform: translate(-50%, -50%);
-  animation: rotate 10s linear infinite;
+@keyframes glowBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-.skill-icon {
-  position: absolute;
-  font-size: 24px;
-  color: #007bff;
-}
-
-.react { top: 0; left: 50%; transform: translate(-50%, 0); }
-.js { top: 50%; left: 100%; transform: translate(-100%, -50%); }
-.html { top: 100%; left: 50%; transform: translate(-50%, -100%); }
-.css { top: 50%; left: 0; transform: translate(0, -50%); }
-.node { top: 25%; left: 75%; transform: translate(-50%, -50%); }
-
-@keyframes rotate {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-// src/components/Section.css
-.section {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-.section p, .section ul {
-  font-size: 18px;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }

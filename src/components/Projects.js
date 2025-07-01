@@ -1,15 +1,37 @@
 import React from 'react';
-import './Section.css';
+import './Projects.css';
+
+const projects = [
+  {
+    title: "Event Management System",
+    desc: "A full-stack web app for managing college events using Flask, SQLite, and Bootstrap.",
+    tech: "Flask, SQLite, HTML, CSS"
+  },
+  {
+    title: "Real-time Chat App",
+    desc: "Login-based chat system using Node.js, Express, MongoDB, and Socket.io.",
+    tech: "Node.js, Express, MongoDB, Socket.io"
+  },
+  {
+    title: "Hospital Bed Tracker",
+    desc: "Dashboard for doctors to update and users to view bed availability (PHP + MySQL).",
+    tech: "PHP, MySQL, Bootstrap"
+  }
+];
 
 function Projects() {
   return (
-    <section id="projects" className="section">
+    <section className="section">
       <h2>Projects</h2>
-      <ul>
-        <li>Event Management System using Flask</li>
-        <li>Hospital Bed Availability System using PHP</li>
-        <li>React Todo App with Filters and Dark Mode</li>
-      </ul>
+      <div className="projects-grid">
+        {projects.map((proj, idx) => (
+          <div className="card project-card" key={idx}>
+            <h3>{proj.title}</h3>
+            <p>{proj.desc}</p>
+            <span className="tech">{proj.tech}</span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
