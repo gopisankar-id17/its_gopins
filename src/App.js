@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import Profile from './components/Profile';
 import About from './components/About';
+
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Separator from './components/Separator';
@@ -38,9 +39,6 @@ function App() {
     <div>
       <SniperCursorOverlay />
       <Navbar />
-
-      {/* Add the 3D Banner Here */}
-      {/* <Banner /> */}
 
       <section id="home"><Profile /></section>
       <Separator />

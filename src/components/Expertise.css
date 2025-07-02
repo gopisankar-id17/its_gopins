@@ -1,43 +1,18 @@
+/* === SKILLS GRID === */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 20px;
   max-width: 800px;
-  margin: 20px auto 0 auto;
+  margin: 20px auto;
   padding: 0 10px;
-}
-
-.skill-card {
-  background: #f5f5f5;
-  border-radius: 12px;
-  padding: 15px 10px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.skill-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 123, 255, 0.4), 0 0 20px rgba(0, 123, 255, 0.2);
-}
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 60px;
   justify-items: center;
   align-items: center;
-  margin-top: 30px;
 }
 
 .skill-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
   border-radius: 12px;
   padding: 15px;
   width: 120px;
@@ -46,17 +21,117 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.9s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .skill-card:hover {
-  box-shadow: 0 0 20px rgba(237, 8, 8, 0.4);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 123, 255, 0.4);
 }
 
 .skill-name {
   margin-top: 8px;
-  font-size: 15px;
+  font-size: 0.95rem;
   color: #2c3e50;
   text-align: center;
+}
+
+/* === EDUCATION TIMELINE === */
+.timeline-item {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.timeline-icon {
+  background: #007bff;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin: 5px 0;
+  color: #007bff;
+}
+
+.timeline-content p {
+  margin: 3px 0;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+/* === PERCENTAGE BADGE (Circular) === */
+.progress-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(#007bff calc(var(--percentage) * 1%), #e0e0e0 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.4);
+}
+
+.progress-inner {
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media screen and (max-width: 600px) {
+  .progress-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .progress-inner {
+    width: 45px;
+    height: 45px;
+    font-size: 0.85rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-icon {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
 }

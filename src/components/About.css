@@ -7,16 +7,18 @@
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #333; /* Back to dark color */
 }
 
 .about-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9); /* More opaque white background */
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   font-size: 16px;
   line-height: 1.6;
-  color: #444;
+  color: #444; /* Dark text */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 

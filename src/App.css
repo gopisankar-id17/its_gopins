@@ -1,51 +1,51 @@
-body {
-  cursor: none;
-}
-
-body {
-  cursor: url('/sniper-cursor.svg') 24 24, crosshair;
-}
-
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   color: #eee;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #000; /* set dark background */
-  position: relative;
+  background: #000 !important;
+  cursor: url('/sniper-cursor.svg') 24 24, crosshair;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center,
-    rgba(0, 123, 255, 0.15),
-    rgba(123, 0, 255, 0.1),
-    rgba(255, 0, 123, 0.1),
-    rgba(0, 255, 255, 0.1),
-    rgba(0, 0, 0, 0)
-  );
-  background-size: 400% 400%;
-  animation: glowBackground 30s ease infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-
-@keyframes glowBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 body {
-  font-family: 'Poppins', sans-serif;
+  position: relative;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(29, 78, 216, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 85% 15%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 30% 85%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(245, 101, 101, 0.25) 0%, transparent 50%),
+    linear-gradient(135deg, #000 0%, #0a0a0a 50%, #000 100%) !important;
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: brightness(1) contrast(1);
+  }
+  50% {
+    filter: brightness(1.2) contrast(1.1);
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Ensure all sections inherit the background */
+section {
+  background: transparent !important;
+}
+
+.App, #root {
+  background: transparent !important;
 }

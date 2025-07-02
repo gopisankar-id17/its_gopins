@@ -7,7 +7,7 @@
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #333; /* Back to dark color */
 }
 
 .projects-grid {
@@ -17,11 +17,14 @@ h2 {
 }
 
 .project-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9); /* More opaque white background */
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333; /* Dark text */
 }
 
 .project-card:hover {
@@ -30,13 +33,13 @@ h2 {
 
 .project-card h3 {
   margin-bottom: 10px;
-  color: #007bff;
+  color: #007bff; /* Back to original blue */
 }
 
 .project-card .tech {
   display: inline-block;
   margin-top: 10px;
   font-size: 14px;
-  color: #666;
+  color: #666; /* Back to dark gray */
   font-style: italic;
 }
