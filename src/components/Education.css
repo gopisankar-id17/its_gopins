@@ -1,93 +1,260 @@
-.timeline {
+/* Education Section Styles */
+.education-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 80px 0;
+  color: #ffffff;
   position: relative;
-  margin: 40px auto;
-  max-width: 600px;
-  padding-left: 40px;
+  overflow: hidden;
 }
 
-.timeline::before {
+.education-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.education-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #FF6F61;
+  text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+  animation: titleFadeIn 1s ease-out;
+}
+
+@keyframes titleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Timeline Styles */
+.education-timeline {
+  position: relative;
+  padding: 0 20px;
+}
+
+.education-timeline::before {
   content: '';
   position: absolute;
-  left: 20px;
+  left: 50%;
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #007bff;
+  background: linear-gradient(180deg, #FF6F61 0%, #007BFF 100%);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: timelineFadeIn 1.5s ease-out 0.5s both;
 }
 
-.timeline-item {
+@keyframes timelineFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+/* Education Items */
+.education-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
   position: relative;
-  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
 
-.timeline-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  background: #007bff;
+/* Scroll-triggered Animation States */
+.education-item.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.education-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternating Layout */
+.education-item:nth-child(odd) {
+  flex-direction: row;
+  text-align: right;
+}
+
+.education-item:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+/* Education Icon */
+.education-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #FF6F61, #007BFF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
   color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  z-index: 1;
+  margin: 0 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(255, 111, 97, 0.3);
+  transition: all 0.3s ease;
 }
 
-.timeline-content {
-  margin-left: 60px; /* Consistently on the right */
-  background: rgba(255, 255, 255, 0.9); /* More opaque white background */
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+.education-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(255, 111, 97, 0.5);
+}
+
+/* Education Content */
+.education-content {
+  flex: 1;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 111, 97, 0.2);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #333; /* Dark text */
-  position: relative; /* For positioning the percentage */
+  transition: all 0.3s ease;
 }
 
-.timeline-content:hover {
+.education-content:hover {
+  border-color: rgba(255, 111, 97, 0.5);
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-.timeline-content h3 {
-  margin-top: 0;
-  color: #007bff; /* Back to original blue */
+.education-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FF6F61;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 111, 97, 0.3);
 }
 
-.timeline-content p {
-  margin: 5px 0 0;
+.education-content .institution {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
-.progress-circle {
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: conic-gradient(
-    #007bff calc(var(--percentage) * 1%),
-    #e9ecef calc(var(--percentage) * 1%)
-  );
+.education-content .year {
+  font-size: 0.9rem;
+  color: #007BFF;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Star Rating Styles */
+.star-rating {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.progress-inner {
-  width: 35px;
-  height: 35px;
-  background: white;
-  border-radius: 50%;
+.stars-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: bold;
-  color: #007bff;
+  gap: 5px;
+}
+
+.star {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.star.filled {
+  color: #FFD700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  animation: starGlow 2s ease-in-out infinite alternate;
+}
+
+.star.empty {
+  color: #555;
+}
+
+@keyframes starGlow {
+  0% {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 25px rgba(255, 215, 0, 1);
+  }
+}
+
+.rating-info {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+}
+
+.percentage-text {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.rating-text {
+  color: #FFD700;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 30px;
+  }
+  
+  .education-item {
+    flex-direction: column !important;
+    text-align: center !important;
+    margin-bottom: 60px;
+  }
+  
+  .education-icon {
+    margin: 0 0 20px 0;
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  
+  .education-content {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .education-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 60px 0;
+  }
+  
+  .education-content {
+    padding: 20px;
+  }
+  
+  .education-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .education-content .institution {
+    font-size: 0.9rem;
+  }
 }

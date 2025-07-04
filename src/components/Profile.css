@@ -1,6 +1,11 @@
+/* Profile Section Styles */
 .profile-section {
-  padding: 60px 20px;
-  /* Removed background to allow global animated background to show */
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 10px 0 80px 0;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  margin-top: -80px;
 }
 
 .profile-container {
@@ -8,69 +13,347 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   text-align: center;
 }
 
-/* Social Icons at the top */
+/* Main content layout */
+.profile-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px 0;
+}
+
+/* Left side - Photo */
+.profile-left {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-left: -20px;
+  margin-top: -10px;
+}
+
+/* Social Icons at the top of the image */
 .social-icons {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
+  margin-top: 10px;
   display: flex;
   gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.icon {
+  font-size: 3rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 111, 97, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.icon:hover {
+  color: #FF6F61;
+  transform: scale(1.2) translateY(-5px);
+  border-color: rgba(255, 111, 97, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 111, 97, 0.3);
+}
+
+/* Portrait and Social Icons Wrapper */
+.portrait-social-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 /* Portrait container in the center */
 .portrait-container {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  position: relative;
 }
 
 .portrait-pic {
-  width: 300px;
-  height: 400px;
+  width: 280px;
+  height: 320px;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 111, 97, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.portrait-pic:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 111, 97, 0.6);
+  box-shadow: 0 25px 80px rgba(255, 111, 97, 0.2);
+}
+
+/* Right side - Content */
+.profile-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 25px;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-top: 80px;
+}
+
+/* Quote container for multiple quotes */
+.quotes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Profile info below image */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.profile-name-bottom {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FF6F61;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+  animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+.profile-tagline-bottom {
+  font-size: 1.2rem;
+  color: #007BFF;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.profile-buttons-bottom {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile-button-bottom {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FF6F61, #e85c50);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-button-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.profile-button-bottom:hover::before {
+  left: 100%;
+}
+
+.profile-button-bottom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 111, 97, 0.5);
+}
+
+.contact-button-bottom {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.contact-button-bottom:hover {
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.5);
+}
+
+/* Inspirational Quote */
+.profile-quote {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  font-style: italic;
+  margin: 0;
+  padding: 20px 25px;
+  border-left: 4px solid #FF6F61;
+  background: linear-gradient(135deg, rgba(255, 111, 97, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 111, 97, 0.2);
+  transition: all 0.3s ease;
+  animation: quoteGlow 3s ease-in-out infinite alternate;
+}
+
+/* Tamil Quote - Different styling */
+.profile-quote-tamil {
+  font-size: 1rem;
+  color: #e0e0e0;
+  font-style: italic;
+  margin: 0;
+  padding: 20px 25px;
+  border-left: 4px solid #007BFF;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: quoteGlowTamil 3s ease-in-out infinite alternate;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-quote::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 111, 97, 0.1), transparent);
+  animation: quoteSweep 4s linear infinite;
+  opacity: 0;
+}
+
+.profile-quote-tamil::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+  animation: quoteSweep 4s linear infinite;
+  opacity: 0;
+}
+
+.profile-quote:hover::before,
+.profile-quote-tamil:hover::before {
+  opacity: 1;
+}
+
+.profile-quote:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 111, 97, 0.3);
+  border-left-color: #FF6F61;
+}
+
+.profile-quote-tamil:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 123, 255, 0.3);
+  border-left-color: #007BFF;
+}
+
+@keyframes quoteGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border-left-color: #FF6F61;
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    border-left-color: #ff8a7a;
+  }
+}
+
+@keyframes quoteGlowTamil {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border-left-color: #007BFF;
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    border-left-color: #4dabf7;
+  }
+}
+
+@keyframes quoteSweep {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 /* Content below the image */
 .profile-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 25px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 111, 97, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.profile-content:hover {
+  border-color: rgba(255, 111, 97, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .profile-name {
-  font-size: 36px;
-  font-weight: bold;
-  color: #2C3E50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF6F61;
   margin: 0;
+  text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+  animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(255, 111, 97, 0.8);
+  }
 }
 
 .profile-tagline {
-  font-size: 22px;
-  color: #FF6F61;
+  font-size: 1.3rem;
+  color: #007BFF;
   margin: 0;
-  height: 35px;
-}
-
-.social-icons {
-  margin-bottom: 30px;
-  display: flex;
-  gap: 20px;
-}
-
-.icon {
-  font-size: 32px;
-  color: #2C3E50;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.icon:hover {
-  color: #FF6F61;
-  transform: scale(1.2);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
 .profile-buttons {
@@ -80,23 +363,205 @@
 }
 
 .profile-button {
-  padding: 10px 20px;
-  background: #FF6F61;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #FF6F61, #e85c50);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s, transform 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.profile-button:hover::before {
+  left: 100%;
 }
 
 .profile-button:hover {
-  background: #e85c50;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 111, 97, 0.5);
 }
 
 .contact-button {
-  background: #007BFF;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.contact-button:hover {
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons below quotes */
+.profile-buttons-below-quotes {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Quote author styling */
+.quote-author {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-weight: 600;
+  opacity: 0.8;
+  font-style: normal;
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 60px 0;
+  }
+  
+  .profile-main {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .profile-right {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-quote {
+    text-align: center;
+  }
+  
+  .profile-quote-tamil {
+    text-align: center;
+  }
+  
+  .portrait-pic {
+    width: 280px;
+    height: 380px;
+  }
+  
+  .profile-name-bottom {
+    font-size: 1.8rem;
+  }
+  
+  .profile-tagline-bottom {
+    font-size: 1rem;
+  }
+  
+  .profile-buttons-bottom {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .profile-buttons-below-quotes {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .profile-button-bottom {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .profile-content {
+    padding: 30px;
+    align-items: center;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+  }
+  
+  .profile-tagline {
+    font-size: 1.1rem;
+  }
+  
+  .profile-buttons {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .profile-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social-icons {
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .icon {
+    font-size: 2.2rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portrait-pic {
+    width: 240px;
+    height: 320px;
+  }
+  
+  .profile-name-bottom {
+    font-size: 1.6rem;
+  }
+  
+  .profile-tagline-bottom {
+    font-size: 0.9rem;
+  }
+  
+  .profile-button-bottom {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+  
+  .profile-content {
+    padding: 20px;
+  }
+  
+  .profile-name {
+    font-size: 1.8rem;
+  }
+  
+  .profile-tagline {
+    font-size: 1rem;
+  }
+  
+  .social-icons {
+    gap: 15px;
+  }
+  
+  .profile-quote {
+    font-size: 1rem;
+    padding: 20px;
+  }
+  
+  .profile-quote-tamil {
+    font-size: 0.9rem;
+    padding: 20px;
+  }
 }
 
 .contact-button:hover {

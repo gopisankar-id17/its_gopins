@@ -4,48 +4,152 @@
   box-sizing: border-box;
 }
 
-html, body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  color: #eee;
   min-height: 100vh;
   overflow-x: hidden;
-  background: #000 !important;
-  cursor: url('/sniper-cursor.svg') 24 24, crosshair;
+  cursor: crosshair;
+  transition: all 0.5s ease;
 }
 
+/* Default Dark Theme */
 body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #eee;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  background: transparent;
   position: relative;
-  background: 
-    radial-gradient(circle at 15% 20%, rgba(29, 78, 216, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 85% 15%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 30% 85%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 10% 90%, rgba(245, 101, 101, 0.25) 0%, transparent 50%),
-    linear-gradient(135deg, #000 0%, #0a0a0a 50%, #000 100%) !important;
-  animation: pulseGlow 8s ease-in-out infinite;
+  padding-top: 80px; /* Account for fixed navbar */
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    filter: brightness(1) contrast(1);
-  }
-  50% {
-    filter: brightness(1.2) contrast(1.1);
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Ensure all sections inherit the background */
+/* Sections */
 section {
-  background: transparent !important;
+  background: transparent;
+  position: relative;
+  padding: 80px 0;
 }
 
-.App, #root {
-  background: transparent !important;
+/* Clean text styling */
+h1, h2, h3, h4, h5, h6 {
+  color: #eee;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Accent colors */
+.accent-primary {
+  color: #FF6F61;
+}
+
+.accent-secondary {
+  color: #007BFF;
+}
+
+/* Button styles */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #FF6F61, #007BFF);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #e55a4f, #0056b3);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #FF6F61;
+  border: 2px solid #FF6F61;
+}
+
+.btn-secondary:hover {
+  background: #FF6F61;
+  color: white;
+}
+
+/* Card styles */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+/* Basic animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
 }

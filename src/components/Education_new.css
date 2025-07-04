@@ -1,0 +1,168 @@
+.education-section {
+  padding: 80px 0;
+  background: transparent;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #eee;
+  background: linear-gradient(45deg, #FF6F61, #007BFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.education-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #FF6F61, #007BFF);
+  transform: translateX(-50%);
+}
+
+.education-item {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.education-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.education-item:nth-child(even) {
+  flex-direction: row;
+}
+
+.education-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #FF6F61, #007BFF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 2;
+  margin: 0 2rem;
+}
+
+.education-content {
+  flex: 1;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.education-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.education-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #FF6F61;
+}
+
+.education-content .institution {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.education-content .year {
+  font-size: 0.9rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.percentage-label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.percentage-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FF6F61;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 30px;
+  }
+  
+  .education-item {
+    flex-direction: row !important;
+    margin: 2rem 0;
+  }
+  
+  .education-icon {
+    margin: 0 1rem 0 0;
+  }
+  
+  .education-content {
+    max-width: none;
+    flex: 1;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 60px 0;
+  }
+  
+  .education-timeline::before {
+    left: 20px;
+  }
+  
+  .education-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .education-content {
+    padding: 1.5rem;
+  }
+  
+  .education-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+}

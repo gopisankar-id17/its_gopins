@@ -4,8 +4,11 @@
     align-items: center;
     padding: 12px 24px;
     background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
@@ -27,8 +30,12 @@
     text-decoration: none;
     color: #fff; /* White for dark theme */
     font-weight: 500;
+    font-size: 1.1rem;
     position: relative;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-links a::after {
@@ -72,11 +79,18 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 15px 20px;
-        gap: 10px;
+        gap: 15px;
         box-shadow: -2px 0 6px rgba(0,0,0,0.5);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         backdrop-filter: blur(10px);
+        min-width: 160px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 8px 0;
+        width: 100%;
     }
 
     .nav-links.open {

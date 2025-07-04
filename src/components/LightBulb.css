@@ -1,0 +1,344 @@
+/* Light Bulb Container */
+.light-bulb-container {
+  position: fixed;
+  top: 0;
+  left: 50px; /* Changed from right to left */
+  z-index: 1000;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Ceiling Attachment */
+.ceiling-attachment {
+  width: 20px;
+  height: 10px;
+  background: linear-gradient(145deg, #4a4a4a, #2a2a2a);
+  border-radius: 0 0 50% 50%;
+  margin: 0 auto;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 2px rgba(255,255,255,0.1);
+  border: 1px solid #333;
+}
+
+/* Wire */
+.wire {
+  width: 3px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-origin: top center;
+}
+
+.wire:hover {
+  transform: scale(1.05);
+}
+
+.wire.swinging {
+  animation: wireSwing 1.5s ease-in-out;
+}
+
+.wire.pulling {
+  transform: translateY(5px) scaleY(1.1);
+}
+
+@keyframes wireSwing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+.wire-segment {
+  width: 100%;
+  height: 33.33%;
+  background: linear-gradient(90deg, #333, #555, #333);
+  border-radius: 2px;
+  margin-bottom: 1px;
+  box-shadow: 
+    inset 0 1px 1px rgba(255,255,255,0.1),
+    0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Bulb Container */
+.bulb-container {
+  position: relative;
+  transform-origin: top center;
+  transition: all 0.3s ease;
+}
+
+.bulb-container:hover {
+  transform: scale(1.02);
+}
+
+.bulb-container.swinging {
+  animation: bulbSwing 1.5s ease-in-out;
+}
+
+@keyframes bulbSwing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+/* Light Bulb */
+.light-bulb {
+  width: 60px;
+  height: 80px;
+  position: relative;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.light-bulb.on {
+  filter: drop-shadow(0 4px 12px rgba(255,255,255,0.3));
+}
+
+/* Bulb Base/Screw */
+.bulb-base {
+  width: 24px;
+  height: 20px;
+  background: linear-gradient(145deg, #666, #444);
+  border-radius: 0 0 4px 4px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 2px rgba(255,255,255,0.1);
+}
+
+.screw-thread {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #333, #555);
+  margin: 2px 0;
+  border-radius: 1px;
+}
+
+/* Bulb Glass */
+.bulb-glass {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, 
+    rgba(255,255,255,0.9) 0%, 
+    rgba(240,240,240,0.8) 30%, 
+    rgba(200,200,200,0.6) 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.2),
+    inset 0 2px 4px rgba(255,255,255,0.3),
+    inset 0 -2px 4px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+
+.light-bulb.on .bulb-glass {
+  background: linear-gradient(145deg, 
+    rgba(255,255,200,0.95) 0%, 
+    rgba(255,255,180,0.9) 30%, 
+    rgba(255,240,140,0.8) 100%);
+  box-shadow: 
+    0 0 20px rgba(255,255,100,0.6),
+    0 4px 8px rgba(0,0,0,0.2),
+    inset 0 2px 4px rgba(255,255,255,0.5);
+}
+
+/* Filament */
+.filament {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+}
+
+.filament-support {
+  width: 2px;
+  height: 20px;
+  background: #333;
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+.filament-wire {
+  width: 20px;
+  height: 12px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  position: absolute;
+  background: transparent;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.light-bulb.on .filament-wire {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px #FFD700;
+}
+
+.filament-1 {
+  top: 2px;
+  width: 16px;
+  height: 8px;
+}
+
+.filament-2 {
+  top: 12px;
+  width: 12px;
+  height: 6px;
+}
+
+/* Light Glow Effect */
+.light-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glow-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, 
+    rgba(255,255,200,0.8) 0%, 
+    rgba(255,255,100,0.4) 50%, 
+    transparent 100%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.glow-outer {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: radial-gradient(circle, 
+    rgba(255,255,150,0.3) 0%, 
+    rgba(255,255,100,0.1) 50%, 
+    transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 3s ease-in-out infinite reverse;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* Light Rays */
+.light-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.light-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,150,0.8) 0%, 
+    rgba(255,255,100,0.4) 50%, 
+    transparent 100%);
+  transform: translate(-50%, -50%) rotate(var(--ray-angle)) translateX(35px);
+  border-radius: 1px;
+  animation: rayPulse 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--ray-angle) * 0.01s);
+}
+
+@keyframes rayPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) rotate(var(--ray-angle)) translateX(35px) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--ray-angle)) translateX(40px) scale(1.2); }
+}
+
+/* Pull Indicator */
+.pull-indicator {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.light-bulb-container:hover .pull-indicator {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Theme-specific adjustments */
+body.light-theme .wire-segment {
+  background: linear-gradient(90deg, #666, #888, #666);
+}
+
+body.light-theme .ceiling-attachment {
+  background: linear-gradient(145deg, #888, #666);
+}
+
+body.light-theme .bulb-base {
+  background: linear-gradient(145deg, #999, #777);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .light-bulb-container {
+    right: 20px;
+    transform: scale(0.8);
+  }
+  
+  .wire {
+    height: 80px;
+  }
+  
+  .light-bulb {
+    width: 50px;
+    height: 65px;
+  }
+  
+  .bulb-glass {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .light-bulb-container {
+    right: 10px;
+    transform: scale(0.7);
+  }
+  
+  .pull-indicator {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}

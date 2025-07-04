@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaUser, FaCog, FaGraduationCap, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 import './Navbar.css';
 
 function Navbar() {
@@ -44,12 +44,30 @@ function Navbar() {
     <nav className="navbar">
       <div className="logo">GnS</div>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <a href="#home" className={activeSection === 'home' ? 'active' : ''}>Home</a>
-<a href="#about" className={activeSection === 'about' ? 'active' : ''}>About</a>
-<a href="#expertise" className={activeSection === 'expertise' ? 'active' : ''}>Expertise</a>
-<a href="#education" className={activeSection === 'education' ? 'active' : ''}>Education</a>
-<a href="#projects" className={activeSection === 'projects' ? 'active' : ''}>Projects</a>
-<a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>Contact</a>
+        <a href="#home" className={activeSection === 'home' ? 'active' : ''}>
+          <FaHome size={16} />
+          Home
+        </a>
+        <a href="#about" className={activeSection === 'about' ? 'active' : ''}>
+          <FaUser size={16} />
+          About
+        </a>
+        <a href="#expertise" className={activeSection === 'expertise' ? 'active' : ''}>
+          <FaCog size={16} />
+          Expertise
+        </a>
+        <a href="#education" className={activeSection === 'education' ? 'active' : ''}>
+          <FaGraduationCap size={16} />
+          Education
+        </a>
+        <a href="#projects" className={activeSection === 'projects' ? 'active' : ''}>
+          <FaProjectDiagram size={16} />
+          Projects
+        </a>
+        <a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>
+          <FaEnvelope size={16} />
+          Contact
+        </a>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}

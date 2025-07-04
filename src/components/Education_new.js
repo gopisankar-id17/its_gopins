@@ -4,21 +4,21 @@ import './Education.css';
 
 const educationData = [
   {
-    icon: <FaUniversity />,
+    icon: <FaUserGraduate />,
     degree: "Bachelor's Degree",
     institution: "Kongu Engineering College, Erode",
     year: "2023-2027",
-    percentage: 78.9
+    percentage: 78.1
   },
   {
-    icon: <FaSchool />,
+    icon: <FaUniversity />,
     degree: "Higher Secondary Education",
     institution: "Sri Jayendra Saraswathi Swamigal Golden Jubilee Matriculation Higher Secondary School, Tirunelveli",
     year: "2023",
     percentage: 92
   },
   {
-    icon: <FaUserGraduate />,
+    icon: < FaSchool/>,
     degree: "SSLC",
     institution: "Sri Jayendra Saraswathi Swamigal Golden Jubilee Matriculation Higher Secondary School, Tirunelveli",
     year: "2021",
@@ -66,10 +66,10 @@ const Education = () => {
 
   // Function to convert percentage to star rating (1-5 stars)
   const getStarRating = (percentage) => {
-    if (percentage >= 90) return 5;
-    if (percentage >= 80) return 4;
-    if (percentage >= 70) return 3;
-    if (percentage >= 60) return 2;
+    if (percentage >= 95) return 5;
+    if (percentage >= 85) return 4;
+    if (percentage >= 75) return 3;
+    if (percentage >= 65) return 2;
     return 1;
   };
 
@@ -90,6 +90,7 @@ const Education = () => {
     return stars;
   };
 
+  console.log('Education component is rendering');
   return (
     <section id="education" className="education-section" ref={sectionRef}>
       <div className="container">
@@ -98,8 +99,8 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <div 
               key={index} 
-              ref={(el) => educationRefs.current[index] = el}
               className={`education-item ${visibleItems.includes(index) ? 'visible' : 'hidden'}`}
+              ref={(el) => educationRefs.current[index] = el}
             >
               <div className="education-icon">
                 {edu.icon}
@@ -114,7 +115,7 @@ const Education = () => {
                   </div>
                   <div className="rating-info">
                     <span className="percentage-text">{edu.percentage}%</span>
-                    <span className="rating-text">{getStarRating(edu.percentage)}/5 ★</span>
+                    <span className="rating-text">{getStarRating(edu.percentage)}/5 Stars</span>
                   </div>
                 </div>
               </div>

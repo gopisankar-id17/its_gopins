@@ -1,0 +1,1654 @@
+.skills-section {
+  padding: 120px 20px 80px; /* Increased top padding to avoid navbar */
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: transparent; /* Use global background instead */
+  z-index: 1; /* Ensure it stays below navbar */
+}
+
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding-top: 20px; /* Extra spacing from top */
+}
+
+.skills-title {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 0 30px #FF6F61;
+  background: linear-gradient(45deg, #FF6F61, #FF6F61, #FF6F61, #FF6F61);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    background-position: 0% 50%;
+    text-shadow: 0 0 30px #FF6F61; 
+  }
+  50% { 
+    background-position: 100% 50%;
+    text-shadow: 0 0 50px #FF6F61, 0 0 80px #FF6F61; 
+  }
+}
+
+.skills-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Category Filter */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(255, 140, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 140, 0, 0.6);
+  color: #ff8c00;
+}
+
+.filter-btn:hover::before {
+  left: 100%;
+}
+
+.filter-btn.active {
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  color: white;
+  border-color: #007BFF;
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 25px #FF6F61,
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* 3D Mechanical System Container */
+.skills-3d-container {
+  perspective: 2000px;
+  perspective-origin: center center;
+  position: relative;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* Changed from hidden to visible */
+  margin-top: 20px; /* Extra margin from title */
+  z-index: 1; /* Ensure it stays below navbar */
+}
+
+/* System Controls */
+.system-controls {
+  position: absolute;
+  top: 60px; /* Moved down from navbar */
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 10; /* High z-index but still below navbar */
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #FF6F61;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.control-btn {
+  background: linear-gradient(145deg, #3a3a3a, #2f2f2f);
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  border-color: #007BFF;
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 15px rgba(255, 140, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.control-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.status-light.running {
+  background: #007BFF;
+  box-shadow: 0 0 10px #007BFF, 0 0 20px #007BFF;
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+.status-light.stopped {
+  background: #FF6F61;
+  box-shadow: 0 0 10px #FF6F61, 0 0 20px #FF6F61;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Mechanical System */
+.mechanical-system {
+  position: relative;
+  width: 900px;
+  height: 900px;
+  transform-style: preserve-3d;
+  animation: systemFloat 20s ease-in-out infinite;
+  z-index: 1; /* Ensure it stays below navbar */
+  margin-top: 40px; /* Push system down from top */
+}
+
+@keyframes systemFloat {
+  0%, 100% { transform: translateY(0px) rotateX(5deg); }
+  50% { transform: translateY(-10px) rotateX(-5deg); }
+}
+
+.mechanical-system.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Central Power Core */
+.power-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.core-housing {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.core-center {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #3a3a3a, #2f2f2f);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 40px #FF6F61,
+    inset 0 0 30px #FF6F61,
+    inset 0 4px 8px rgba(255, 255, 255, 0.1);
+  border: 3px solid #FF6F61;
+  animation: coreRotate 10s linear infinite;
+}
+
+@keyframes coreRotate {
+  from { transform: translate(-50%, -50%) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateZ(360deg); }
+}
+
+.energy-orb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #FF6F61 0%, #FF6F61 40%, #FF6F61 100%);
+  box-shadow: 
+    0 0 30px #FF6F61,
+    inset 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: orbPulse 3s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 30px #FF6F61, inset 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 50px #FF6F61, 0 0 80px #FF6F61, inset 0 0 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.orb-inner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #FF6F61 100%);
+  animation: orbInnerSpin 5s linear infinite;
+}
+
+@keyframes orbInnerSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.energy-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.energy-ring {
+  position: absolute;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 50%;
+  animation: ringExpand 2s ease-in-out infinite;
+  animation-delay: var(--ring-delay);
+}
+
+.energy-ring:nth-child(1) {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+}
+
+.energy-ring:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: -40px;
+}
+
+.energy-ring:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: -50px;
+}
+
+@keyframes ringExpand {
+  0% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.core-label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FF6F61;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #FF6F61;
+}
+
+.core-vents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+}
+
+.vent {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: linear-gradient(to top, #FF6F61, #FF6F61);
+  border-radius: 4px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--vent-angle)) translateY(-70px);
+  animation: ventGlow 2s ease-in-out infinite;
+  animation-delay: calc(var(--vent-angle) * 0.01s);
+}
+
+@keyframes ventGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px #FF6F61;
+    transform: translateX(-50%) rotate(var(--vent-angle)) translateY(-70px) scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 15px #FF6F61, 0 0 30px #FF6F61;
+    transform: translateX(-50%) rotate(var(--vent-angle)) translateY(-70px) scale(1.2);
+  }
+}
+
+/* Mechanical Gears */
+.gears-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+/* Gear Ring Guides */
+.gear-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gear-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--ring-radius) * 2);
+  height: calc(var(--ring-radius) * 2);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 140, 0, 0.15);
+  border-radius: 50%;
+  animation: ringGlow 8s ease-in-out infinite;
+  animation-delay: var(--ring-delay);
+}
+
+@keyframes ringGlow {
+  0%, 100% { 
+    border-color: rgba(255, 140, 0, 0.15);
+    box-shadow: none;
+  }
+  50% { 
+    border-color: rgba(255, 140, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
+  }
+}
+
+.skill-gear {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-gear.selected {
+  z-index: 8; /* Reduced from 50 to stay below navbar */
+}
+
+.gear-positioning {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%) rotate(var(--gear-angle)) translateX(var(--gear-radius));
+  animation: gearOrbit 30s linear infinite;
+  animation-delay: var(--gear-delay);
+  z-index: calc(5 - var(--ring-index, 0)); /* Reduced z-index to stay below navbar */
+}
+
+@keyframes gearOrbit {
+  from { transform: translate(-50%, -50%) rotate(var(--gear-angle)) translateX(var(--gear-radius)) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(calc(var(--gear-angle) + 360deg)) translateX(var(--gear-radius)) rotate(-360deg); }
+}
+
+.gear-assembly {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: gearFloat 6s ease-in-out infinite;
+  animation-delay: calc(var(--ring-index, 0) * 0.5s);
+}
+
+@keyframes gearFloat {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  50% { transform: translateY(-5px) rotateX(5deg); }
+}
+
+.gear-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.gear-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+  box-shadow: 
+    0 0 20px rgba(255, 140, 0, 0.3),
+    inset 0 0 15px rgba(255, 140, 0, 0.1),
+    inset 0 4px 8px rgba(255, 255, 255, 0.1);
+  border: 3px solid #FF6F61;
+  animation: gearRotate var(--gear-rotation-speed) linear infinite;
+}
+
+@keyframes gearRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.skill-gear.large .gear-body {
+  width: 120px;
+  height: 120px;
+}
+
+.skill-gear.medium .gear-body {
+  width: 90px;
+  height: 90px;
+}
+
+.skill-gear.small .gear-body {
+  width: 70px;
+  height: 70px;
+}
+
+.gear-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 0 10px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  border: 2px solid #FF6F61;
+}
+
+.center-hub {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(255, 140, 0, 0.2);
+}
+
+.hub-bolts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bolt {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--bolt-angle)) translateY(-15px);
+  box-shadow: 0 0 5px #FF6F61;
+}
+
+.skill-icon-gear {
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  position: relative;
+  animation: iconCounter var(--gear-rotation-speed) linear infinite reverse;
+}
+
+@keyframes iconCounter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.skill-icon-gear img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) brightness(1.2);
+}
+
+.skill-gear.large .skill-icon-gear {
+  width: 50px;
+  height: 50px;
+}
+
+.skill-gear.small .skill-icon-gear {
+  width: 30px;
+  height: 30px;
+}
+
+/* Gear Teeth */
+.gear-teeth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+}
+
+.tooth {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  background: linear-gradient(to top, #3a3a3a, #4a4a4a);
+  border-radius: 2px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--tooth-angle)) translateY(-58%);
+  box-shadow: 
+    0 0 5px rgba(255, 140, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.skill-gear.large .tooth {
+  width: 10px;
+  height: 20px;
+}
+
+.skill-gear.small .tooth {
+  width: 6px;
+  height: 12px;
+}
+
+/* Gear Side Details */
+.gear-side-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.side-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.side-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  border-radius: 50%;
+  width: var(--ring-radius);
+  height: var(--ring-radius);
+}
+
+.side-bolts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.side-bolt {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--bolt-angle)) translateY(-25px);
+  box-shadow: 0 0 3px #FF6F61;
+}
+
+/* Connecting Rods */
+.connecting-rod {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 6px;
+  background: linear-gradient(90deg, #3a3a3a, #4a4a4a);
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 
+    0 0 8px rgba(255, 140, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.rod-body {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
+  border-radius: 3px;
+}
+
+.rod-joints {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.joint {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px #FF6F61;
+}
+
+.joint-start {
+  left: -6px;
+}
+
+.joint-end {
+  right: -6px;
+}
+
+/* Steam Effect */
+.steam-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.steam-puff {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--puff-angle)) translateY(-40px);
+  animation: steamRise 3s ease-out infinite;
+  animation-delay: var(--puff-delay);
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) rotate(var(--puff-angle)) translateY(-40px) scale(0.5);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-50%) rotate(var(--puff-angle)) translateY(-80px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(var(--puff-angle)) translateY(-120px) scale(1.5);
+  }
+}
+
+/* Gear Sparks */
+.gear-sparks {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--spark-angle)) translateY(-50px);
+  animation: sparkFly 2s ease-out infinite;
+  animation-delay: var(--spark-delay);
+}
+
+@keyframes sparkFly {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(var(--spark-angle)) translateY(-50px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(var(--spark-angle)) translateY(-100px) scale(0.2);
+  }
+}
+
+/* Gear Info Panel */
+.gear-info {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(42, 42, 42, 0.95));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  border-radius: 10px;
+  min-width: 220px;
+  max-width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 140, 0, 0.2);
+}
+
+.gear-info.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+  pointer-events: auto;
+}
+
+.skill-gear:hover .gear-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.info-panel {
+  padding: 20px;
+}
+
+.info-header {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.skill-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #FF6F61;
+  text-shadow: 0 0 8px #FF6F61;
+}
+
+.skill-category {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.performance-metrics {
+  margin-bottom: 15px;
+}
+
+.metric {
+  margin-bottom: 15px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.metric-gauge {
+  position: relative;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.gauge-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255, 140, 0, 0.2) 0%,
+    rgba(255, 140, 0, 0.1) 100%);
+  border-radius: 10px;
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--fill-level);
+  background: linear-gradient(90deg, #FF6F61, #FF6F61, #FF6F61);
+  border-radius: 10px;
+  transition: width 2s ease;
+  animation: gaugeGlow 2s ease-in-out infinite;
+}
+
+@keyframes gaugeGlow {
+  0%, 100% { box-shadow: 0 0 10px #FF6F61; }
+  50% { box-shadow: 0 0 20px #FF6F61; }
+}
+
+.gauge-needle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #FF6F61;
+  border-radius: 50%;
+  transform: translateY(-50%) rotate(var(--needle-angle));
+  transform-origin: center;
+  box-shadow: 0 0 8px #FF6F61;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FF6F61;
+  text-shadow: 0 0 8px #FF6F61;
+}
+
+.technical-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.spec-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.spec-value {
+  color: #007BFF;
+  font-weight: 600;
+  text-shadow: 0 0 5px #007BFF;
+}
+
+/* Mechanical Environment */
+.mechanical-environment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Steam Pipes */
+.steam-pipes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.pipe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--pipe-angle));
+}
+
+.pipe-body {
+  width: var(--pipe-length);
+  height: 8px;
+  background: linear-gradient(90deg, #2a2a2a, #4a4a4a);
+  border-radius: 4px;
+  box-shadow: 
+    0 0 10px rgba(255, 140, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.pipe-joints {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.pipe-joint {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 
+    0 0 8px #FF6F61,
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.pipe-joint:first-child {
+  left: -8px;
+}
+
+.pipe-joint:last-child {
+  right: -8px;
+}
+
+.pipe-steam {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.steam {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pipesteamRise 4s ease-out infinite;
+  animation-delay: var(--steam-delay);
+}
+
+@keyframes pipesteamRise {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(-30px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-60px) scale(1.5);
+  }
+}
+
+/* Mechanical Pistons */
+.pistons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.piston {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--piston-position)) translateX(350px);
+  animation: pistonMove 6s ease-in-out infinite;
+  animation-delay: var(--piston-delay);
+}
+
+@keyframes pistonMove {
+  0%, 100% { transform: translate(-50%, -50%) rotate(var(--piston-position)) translateX(350px) translateY(0); }
+  50% { transform: translate(-50%, -50%) rotate(var(--piston-position)) translateX(350px) translateY(-20px); }
+}
+
+.piston-cylinder {
+  width: 20px;
+  height: 60px;
+  background: linear-gradient(180deg, #4a4a4a, #3a3a3a);
+  border-radius: 10px;
+  box-shadow: 
+    0 0 10px rgba(255, 140, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.piston-rod {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 30px;
+  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+  border-radius: 2px;
+}
+
+.piston-head {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(145deg, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FF6F61;
+}
+
+/* Conveyor Belts */
+.conveyor-belts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.conveyor {
+  position: absolute;
+  bottom: var(--conveyor-level);
+  left: 10%;
+  width: 80%;
+  height: 20px;
+}
+
+.belt-track {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+  border-radius: 10px;
+  box-shadow: 
+    0 0 10px rgba(255, 140, 0, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.belt-surface {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: linear-gradient(90deg, #3a3a3a, #4a4a4a);
+  border-radius: 8px;
+  animation: beltMove 4s linear infinite;
+}
+
+@keyframes beltMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.belt-rollers {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.roller {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 
+    0 0 8px rgba(255, 140, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  animation: rollerSpin 2s linear infinite;
+}
+
+@keyframes rollerSpin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.roller-start {
+  left: -12px;
+}
+
+.roller-end {
+  right: -12px;
+}
+
+/* Industrial Lights */
+.industrial-lights {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--light-angle)) translateX(var(--light-distance));
+}
+
+.light-fixture {
+  width: 30px;
+  height: 40px;
+  background: linear-gradient(180deg, #4a4a4a, #2a2a2a);
+  border-radius: 15px 15px 5px 5px;
+  box-shadow: 
+    0 0 15px rgba(255, 140, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.light-beam {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(180deg, 
+    rgba(255, 140, 0, 0.3) 0%,
+    rgba(255, 140, 0, 0.1) 50%,
+    transparent 100%);
+  border-radius: 0 0 30px 30px;
+  animation: lightFlicker 3s ease-in-out infinite;
+}
+
+@keyframes lightFlicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Transmission Lines */
+.transmission-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.transmission-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--line-angle));
+}
+
+.power-line {
+  width: var(--line-length);
+  height: 2px;
+  background: linear-gradient(90deg, #FF6F61, #007BFF, #FF6F61);
+  border-radius: 1px;
+  box-shadow: 0 0 8px #FF6F61;
+  animation: powerFlow 3s ease-in-out infinite;
+}
+
+@keyframes powerFlow {
+  0%, 100% { 
+    box-shadow: 0 0 8px #FF6F61;
+    opacity: 0.8;
+  }
+  50% { 
+    box-shadow: 0 0 16px #FF6F61;
+    opacity: 1;
+  }
+}
+
+.line-sparks {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.line-spark {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, #FF6F61, #FF6F61);
+  border-radius: 50%;
+  top: 50%;
+  left: var(--spark-position);
+  transform: translateY(-50%);
+  animation: linesparkFlash 2s ease-in-out infinite;
+  animation-delay: var(--spark-delay);
+}
+
+@keyframes linesparkFlash {
+  0%, 90%, 100% { opacity: 0; }
+  10%, 80% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 100px 15px 60px; /* Adjusted for mobile navbar */
+  }
+  
+  .skills-title {
+    font-size: 2.5rem;
+  }
+  
+  .skills-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-3d-container {
+    min-height: 600px;
+    margin-top: 10px;
+  }
+  
+  .mechanical-system {
+    width: 600px;
+    height: 600px;
+    margin-top: 20px;
+  }
+  
+  .power-core {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .core-center {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .energy-orb {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-gear.large .gear-body {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .skill-gear.medium .gear-body {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skill-gear.small .gear-body {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-gear.large .skill-icon-gear {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .skill-gear.small .skill-icon-gear {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .gear-info {
+    min-width: 180px;
+    max-width: 200px;
+    bottom: 100px;
+  }
+  
+  .info-panel {
+    padding: 15px;
+  }
+  
+  .skill-name {
+    font-size: 16px;
+  }
+  
+  .category-filter {
+    gap: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .system-controls {
+    top: 50px; /* Adjusted for mobile */
+    right: 10px;
+    padding: 8px 15px;
+  }
+  
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .control-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 80px 10px 40px; /* Adjusted for smaller mobile screens */
+  }
+  
+  .skills-title {
+    font-size: 2rem;
+  }
+  
+  .skills-subtitle {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+  
+  .skills-3d-container {
+    min-height: 500px;
+    margin-top: 5px;
+  }
+  
+  .mechanical-system {
+    width: 400px;
+    height: 400px;
+    margin-top: 10px;
+  }
+  
+  .power-core {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .core-center {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .energy-orb {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-gear.large .gear-body {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skill-gear.medium .gear-body {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .skill-gear.small .gear-body {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .skill-gear.large .skill-icon-gear {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .skill-gear.medium .skill-icon-gear {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .skill-gear.small .skill-icon-gear {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .gear-info {
+    min-width: 160px;
+    max-width: 180px;
+    bottom: 80px;
+  }
+  
+  .info-panel {
+    padding: 12px;
+  }
+  
+  .skill-name {
+    font-size: 14px;
+  }
+  
+  .category-filter {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .system-controls {
+    top: 40px; /* Adjusted for small mobile */
+    right: 5px;
+    padding: 6px 12px;
+  }
+  
+  .control-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .control-label {
+    display: none;
+  }
+}
+
+/* High DPI screens */
+@media (min-width: 1400px) {
+  .skills-title {
+    font-size: 4rem;
+  }
+  
+  .skills-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .mechanical-system {
+    width: 1000px;
+    height: 1000px;
+  }
+  
+  .power-core {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .core-center {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .energy-orb {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .skill-gear.large .gear-body {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .skill-gear.medium .gear-body {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .skill-gear.small .gear-body {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .skill-gear.large .skill-icon-gear {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-gear.medium .skill-icon-gear {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-gear.small .skill-icon-gear {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .mechanical-system,
+  .gear-assembly,
+  .gear-body,
+  .gear-positioning,
+  .core-center,
+  .energy-orb,
+  .orb-inner,
+  .energy-ring,
+  .vent,
+  .steam-puff,
+  .spark,
+  .steam,
+  .piston,
+  .belt-surface,
+  .roller,
+  .light-beam,
+  .power-line,
+  .line-spark {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .skills-title {
+    animation: none;
+  }
+  
+  .status-light.running {
+    animation: none;
+  }
+  
+  .gauge-fill {
+    animation: none;
+  }
+}
