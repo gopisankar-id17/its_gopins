@@ -107,7 +107,7 @@ function Profile() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.6 }}
             >
-              <a href="/GopiSankar_Resume.pdf" download className="profile-button-bottom">
+              <a href="/Gopi Resume.pdf" download className="profile-button-bottom">
                 Download Resume
               </a>
               <a href="#contact" className="profile-button-bottom contact-button-bottom">

@@ -26,14 +26,18 @@ body {
   min-height: 100vh;
   background: transparent;
   position: relative;
-  padding-top: 80px; /* Account for fixed navbar */
+  padding-top: 0; /* Remove padding since profile section now handles it */
 }
 
 /* Sections */
 section {
   background: transparent;
   position: relative;
-  padding: 80px 0;
+  padding: 60px 0;
+}
+
+section:first-of-type {
+  padding-top: 0; /* First section (Profile) handles its own top padding */
 }
 
 /* Clean text styling */
@@ -133,6 +137,577 @@ p {
   animation: fadeIn 0.8s ease-out;
 }
 
+/* Lock Screen Animations */
+@keyframes lockGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 111, 97, 0.8), 0 0 40px rgba(255, 111, 97, 0.6);
+    transform: scale(1.05);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+    transform: scale(1);
+  }
+}
+
+@keyframes slideHint {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes unlockSuccess {
+  0% {
+    transform: scale(1);
+    background: linear-gradient(45deg, #FF6F61, #007BFF);
+  }
+  50% {
+    transform: scale(1.2);
+    background: linear-gradient(45deg, #00ff00, #00ffff);
+  }
+  100% {
+    transform: scale(1);
+    background: linear-gradient(45deg, #FF6F61, #007BFF);
+  }
+}
+
+/* Contact Form Styles */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(255, 111, 97, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Swipe Slider Styles */
+.swipe-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.swipe-slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Loading Animation */
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Advanced Contact Page Effects */
+
+/* Contact Section Background Effects */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 111, 97, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Floating Particles Effect */
+.contact-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 111, 97, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(0, 123, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 111, 97, 0.2), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(0, 123, 255, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particleFloat 20s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+/* Enhanced Lock Container Effects */
+.lock-container {
+  position: relative;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 60px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: lockAppear 0.8s ease-out, lockFloat 6s ease-in-out infinite;
+}
+
+@keyframes lockFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Lock Interface Enhancements */
+.lock-interface {
+  position: relative;
+  z-index: 2;
+}
+
+.lock-icon {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.lock-icon svg {
+  filter: drop-shadow(0 0 20px rgba(255, 111, 97, 0.5));
+  animation: lockPulse 2s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 111, 97, 0.5));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px rgba(255, 111, 97, 0.8));
+  }
+}
+
+/* Enhanced Slider Track - Now Hold Button Container */
+.hold-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.hold-button {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 111, 97, 0.2), rgba(0, 123, 255, 0.2)) !important;
+  border: 2px solid rgba(255, 111, 97, 0.3) !important;
+  border-radius: 50px !important;
+  padding: 20px 40px !important;
+  color: white !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 200px !important;
+  justify-content: center !important;
+  user-select: none !important;
+  outline: none !important;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 0 0 rgba(255, 111, 97, 0.4) !important;
+  animation: holdPulse 2s ease-in-out infinite !important;
+}
+
+.hold-button:hover {
+  border-color: rgba(255, 111, 97, 0.5);
+  transform: scale(1.05);
+}
+
+.hold-button:active {
+  transform: scale(0.98);
+}
+
+.hold-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #FF6F61, #007BFF);
+  border-radius: 50px;
+  transition: width 0.1s ease;
+  opacity: 0.8;
+}
+
+.hold-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.hold-button svg {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* Enhanced Lock Button Animation */
+@keyframes holdPulse {
+  0%, 100% {
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.3),
+      0 0 0 0 rgba(255, 111, 97, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 0 8px rgba(255, 111, 97, 0.2);
+  }
+}
+
+.hold-button {
+  animation: holdPulse 2s ease-in-out infinite;
+}
+
+/* Contact Form Container Effects */
+.contact-form-container {
+  position: relative;
+  animation: slideInFromRight 0.8s ease-out;
+}
+
+.contact-form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: formReveal 0.8s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove any blocking pseudo-elements */
+.contact-form-wrapper::before,
+.contact-form-wrapper::after {
+  pointer-events: none !important;
+}
+
+@keyframes formReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #FF6F61;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: labelGlow 3s ease-in-out infinite;
+}
+
+@keyframes labelGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
+  }
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100% !important;
+  padding: 15px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  cursor: text !important;
+  pointer-events: auto !important;
+  user-select: text !important;
+  z-index: 10 !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none !important;
+  border-color: rgba(255, 111, 97, 0.6) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 
+    0 0 0 3px rgba(255, 111, 97, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-2px) !important;
+  cursor: text !important;
+}
+
+/* Animated Submit Button */
+.submit-btn {
+  background: linear-gradient(135deg, #FF6F61, #007BFF);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 8px rgba(255, 111, 97, 0.2);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Contact Info Section */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+}
+
+.contact-info h4 {
+  color: #007BFF;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+  }
+}
+
+.contact-details {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 4px solid #007BFF;
+  backdrop-filter: blur(10px);
+  animation: detailsFloat 4s ease-in-out infinite;
+}
+
+@keyframes detailsFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Floating Action Button Enhancement */
+.floating-action-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6F61, #007BFF);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 0 rgba(255, 111, 97, 0.4);
+  z-index: 1000;
+  animation: fabPulse 2s ease-in-out infinite;
+}
+
+@keyframes fabPulse {
+  0%, 100% {
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.3),
+      0 0 0 0 rgba(255, 111, 97, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.4),
+      0 0 0 15px rgba(255, 111, 97, 0.2);
+  }
+}
+
+.floating-action-btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+/* Section Title Enhancement */
+.section-title {
+  position: relative;
+  font-size: 3rem;
+  background: linear-gradient(135deg, #FF6F61, #007BFF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 60px;
+  animation: titleShine 3s ease-in-out infinite;
+}
+
+@keyframes titleShine {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF6F61, #007BFF);
+  border-radius: 2px;
+  animation: underlineGlow 2s ease-in-out infinite;
+}
+
+@keyframes underlineGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 111, 97, 0.8), 0 0 25px rgba(0, 123, 255, 0.5);
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   section {
@@ -141,6 +716,36 @@ p {
   
   .container {
     padding: 0 15px;
+  }
+  
+  .lock-screen {
+    padding: 40px 20px !important;
+  }
+  
+  .lock-title {
+    font-size: 2rem !important;
+  }
+  
+  .swipe-slider {
+    max-width: 250px !important;
+  }
+  
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .contact-form-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .lock-container {
+    padding: 40px 20px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
   }
 }
 
@@ -152,4 +757,182 @@ p {
   .container {
     padding: 0 10px;
   }
+  
+  .contact-form-wrapper {
+    padding: 20px;
+  }
+  
+  .lock-container {
+    padding: 30px 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Lock Animation on Load */
+@keyframes lockAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lock-container {
+  animation: lockAppear 0.8s ease-out;
+}
+
+/* Success Animation */
+@keyframes successPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(0, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+  }
+}
+
+.form-submitted {
+  animation: successPulse 0.6s ease-out;
+}
+
+/* Hold Button Progress Effects */
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.hold-button.filling .hold-progress {
+  animation: progressFill 1s ease-out forwards;
+}
+
+/* Success completion effect */
+@keyframes holdSuccess {
+  0% {
+    background: linear-gradient(135deg, #FF6F61, #007BFF);
+    transform: scale(1);
+  }
+  50% {
+    background: linear-gradient(135deg, #00ff00, #00ffff);
+    transform: scale(1.1);
+  }
+  100% {
+    background: linear-gradient(135deg, #00ff00, #00ffff);
+    transform: scale(1);
+  }
+}
+
+.hold-button.success .hold-progress {
+  animation: holdSuccess 0.5s ease-out;
+}
+
+/* Hold button text animation */
+@keyframes textPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.hold-button.active .hold-text {
+  animation: textPulse 0.5s ease-in-out infinite;
+}
+
+/* Enhanced lock icon animation when holding */
+@keyframes lockShake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+.hold-button.active svg {
+  animation: lockShake 0.3s ease-in-out infinite;
+}
+
+/* Progress bar glow effect */
+.hold-progress {
+  box-shadow: 
+    0 0 10px rgba(255, 111, 97, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hold-button.active .hold-progress {
+  box-shadow: 
+    0 0 20px rgba(255, 111, 97, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile touch feedback */
+@media (max-width: 768px) {
+  .hold-button {
+    padding: 18px 35px;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  .hold-button:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, rgba(255, 111, 97, 0.4), rgba(0, 123, 255, 0.4));
+  }
+}
+
+/* Force Input Interactivity */
+.contact-form {
+  position: relative;
+  z-index: 10;
+}
+
+.form-group {
+  position: relative;
+  z-index: 10;
+}
+
+.contact-form input,
+.contact-form textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+  -webkit-tap-highlight-color: rgba(255, 111, 97, 0.3) !important;
+}
+
+/* Remove any potential blocking overlays */
+.contact-section::before,
+.contact-section::after {
+  pointer-events: none !important;
+}
+
+.contact-form-container::before,
+.contact-form-container::after {
+  pointer-events: none !important;
+}
+
+/* Ensure placeholder text is visible */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
 }

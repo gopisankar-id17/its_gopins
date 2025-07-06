@@ -1,0 +1,156 @@
+/* Contact Design Animations */
+
+/* Neon Pulse Animation */
+@keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+  }
+}
+
+/* Floating Particles Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-5px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-20px) translateX(-10px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.6;
+  }
+}
+
+/* Neumorphism Button Hover */
+.neomorphism-button:hover {
+  box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+  transform: translateY(2px);
+}
+
+/* Neon Button Hover */
+.neon-button:hover {
+  box-shadow: 0 0 30px currentColor, 0 0 50px currentColor;
+  transform: translateY(-2px);
+}
+
+/* Minimalist Button Hover */
+.minimalist-button:hover {
+  background: #e74c3c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 111, 97, 0.4);
+}
+
+/* Particle Button Hover */
+.particle-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Split Screen Responsive */
+@media (max-width: 768px) {
+  .split-screen {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .split-screen > div {
+    padding: 40px 20px !important;
+  }
+}
+
+/* Grid Background Animation */
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.grid-background {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Glassmorphism Enhanced */
+.glassmorphism-enhanced {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form Animations */
+.contact-input:focus {
+  border-color: #FF6F61;
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
+  outline: none;
+}
+
+/* Responsive Design Helpers */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+  
+  .contact-buttons {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  
+  .contact-title {
+    font-size: 2rem !important;
+  }
+  
+  .contact-text {
+    font-size: 1rem !important;
+  }
+}
+
+/* Hover Effects for Different Designs */
+.hover-lift:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 111, 97, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Icon Animations */
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.icon-bounce {
+  animation: iconBounce 2s ease-in-out infinite;
+}

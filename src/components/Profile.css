@@ -1,11 +1,11 @@
 /* Profile Section Styles */
 .profile-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  padding: 10px 0 80px 0;
+  padding: 200px 0 80px 0;
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  margin-top: -80px;
+  margin-top: 20;
 }
 
 .profile-container {
@@ -17,6 +17,7 @@
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  padding-top: 40px;
 }
 
 /* Main content layout */
@@ -39,7 +40,7 @@
   align-items: center;
   gap: 10px;
   margin-left: -20px;
-  margin-top: -10px;
+  margin-top: 40px;
 }
 
 /* Social Icons at the top of the image */
@@ -81,17 +82,20 @@
 /* Portrait container in the center */
 .portrait-container {
   margin-bottom: 0px;
+  margin-top: 5px;
   position: relative;
 }
 
 .portrait-pic {
   width: 280px;
-  height: 320px;
-  border-radius: 20px;
+  height: 350px;
+  border-radius: 30px;
   object-fit: cover;
   border: 3px solid rgba(255, 111, 97, 0.3);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
+ margin-bottom: 10px;
+
 }
 
 .portrait-pic:hover {
@@ -110,7 +114,7 @@
   gap: 25px;
   justify-content: flex-start;
   align-self: flex-start;
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 /* Quote container for multiple quotes */
@@ -127,7 +131,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 2px;
   width: 100%;
 }
 
@@ -429,7 +433,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .profile-section {
-    padding: 60px 0;
+    padding: 160px 0 60px 0;
   }
   
   .profile-main {
